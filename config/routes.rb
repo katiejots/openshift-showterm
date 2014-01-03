@@ -1,4 +1,4 @@
-RailsApp::Application.routes.draw do
+ShowtermIo::Application.routes.draw do
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -11,7 +11,9 @@ RailsApp::Application.routes.draw do
   # This route can be invoked with purchase_url(:id => product.id)
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
+  resources :scripts
+  get ':slug' => 'scripts#view', :slug => /[0-9a-f]{20,40}/
+  delete ':slug' => 'scripts#destroy', :slug => /[0-9a-f]{20,40}/
 
   # Sample resource route with options:
   #   resources :products do
@@ -48,7 +50,11 @@ RailsApp::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  match 'record' => 'record#showterm'
+  match 'showterm' => 'record#showterm'
+  root :to => 'record#showterm', :constraints => {:subdomain => 'record'}
+
+  root :to => 'scripts#index'
 
   # See how all your routes lay out with "rake routes"
 

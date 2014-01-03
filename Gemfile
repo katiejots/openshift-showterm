@@ -1,30 +1,28 @@
 source 'https://rubygems.org'
+ruby '2.0.0'
 
-gem 'rails', '~> 3.2.16'
-gem 'rack', '~> 1.4.5'
+gem 'rails', '~> 3.2.11'
+gem 'heroku'
+gem 'bugsnag'
+gem 'secure_equals'
+
+gem 'skylight'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-group :production do
-  gem 'mysql2'
-  gem 'pg'
-end
-
-group :development, :test do
-  gem 'sqlite3'
-end
+gem 'pg'
 
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails'
-  gem 'coffee-rails'
+  gem 'sass-rails',   '~> 3.2.3'
+  gem 'coffee-rails', '~> 3.2.1'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
 
-  gem 'uglifier', '>= 1.0.3'
+  # gem 'uglifier', '>= 1.0.3'
 end
 
 gem 'jquery-rails'
@@ -43,9 +41,3 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'debugger'
-
-# This version needs to be hardcoded for OpenShift compatibility
-gem 'thor', '= 0.14.6'
-
-# This needs to be installed so we can run Rails console on OpenShift directly
-gem 'minitest'
