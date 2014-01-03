@@ -1,25 +1,12 @@
-This is the server backend for [showterm](https://github.com/ConradIrwin/showterm).
+openshift-showterm
+========================
 
-It's hopefully available on the internet at
-[http://showterm.io](https://showterm.herokuapp.com), but it might still only be at
-[https://showterm.herokuapp.com](https://showterm.herokuapp.com).
+Showterm version running on OpenShift.
 
-Private server
-==============
+To get this app running on OpenShift, [sign up for OpenShift Online](https://www.openshift.com/app/account/new), [install the RHC command line tools](https://www.openshift.com/developers/rhc-client-tools-install), and run the following commands:
 
-If you'd like to run your own showterm server it should "just work". For small
-installations you can use the builtin server that comes with rails in a few easy steps:
+    rhc setup
+    rhc app create showterm ruby-1.9 postgresql-9.2 --from-code=http://github.com/codemiller/openshift-showterm.git
 
-1. git clone https://github.com/ConradIrwin/showterm.io
-2. Set up a database (I've only tested postgres), and add a config/database.yml
-3. `bundle install`
-4. `rails s`
-
-You'll also need to configure your user's `showterm` clients by adding `export SHOWTERM_SERVER`
-to their `~/.bashrc`s.
-
-Meta-fu
-=======
-As usual bug-reports and pull-requests are very welcome. Everything is licensed under the
-MIT license.
+For more information about Showterm, see http://www.showterm.io.
 
